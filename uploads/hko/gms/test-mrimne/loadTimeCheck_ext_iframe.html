@@ -1,0 +1,75 @@
+<html>
+    <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    	<link rel="canonical" href="http://mrmine.com/loadTimeCheck_ext_iframe.html" />
+</head>
+    <body>
+        <script type="text/javascript">
+        function loadResource(uri)
+        {
+            var start = new Date().getTime();
+            var testImage = new Image();
+            var resourceTiming = function() {
+                var now = new Date().getTime();
+                var loadTime = now - start;
+                saveValuesToDb(testImage.src, loadTime);
+            };
+            testImage.onload = resourceTiming;
+            testImage.src = uri;
+        }
+        function saveValuesToDb(uri, loadTime)
+        {
+            var url = "https://playsaurusstats.com/logEvent.php?gameUid=0&eventName="+uri+"&eventValue="+loadTime;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function ()
+            {
+                if(xhr.readyState == 4)
+                {
+                    if(typeof (xhr.responseText) !== "undefined")
+                    {
+                        //console.log(xhr.responseText);
+                    }
+                }
+            }
+            xhr.send();
+        }
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                var temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        function testLoadingSpeed()
+        {
+			return; //test complete
+            if(typeof localStorage["hasTestedCdn"] == "undefined")
+            {
+                var loadTime = [240000, 270000, 300000, 330000, 360000, 390000];
+                shuffleArray(loadTime);
+                //shuffled as of id: 5250
+                //https://457773886.r.worldcdn.net/1mb.jpeg added as of 6390
+                //http://playsaurusstats.com.global.prod.fastly.net/1mb_image.jpg added and https://457773886.r.worldcdn.net/1mb.jpeg removed as of 9220 
+                //fastly removed and added https://cdn.playsaurusstats.com/1mb_image.jpg at 9450
+                //added 5cdn at 11600
+                setTimeout(function(){ loadResource("ext_iframe/1mb_image.jpg"); }, loadTime[0]); //high minimum
+                setTimeout(function(){ loadResource("ext_iframe/1mb_image.jpg"); }, loadTime[1]);
+                setTimeout(function(){ loadResource("ext_iframe/1mb_image.jpg"); }, loadTime[2]); // (good price)
+                setTimeout(function(){ loadResource("ext_iframe/1mb_image.jpg"); }, loadTime[3]); //gcore? (good price)
+                setTimeout(function(){ loadResource("ext_iframe/1mb_image.jpg"); }, loadTime[4]); //cdnnetwork (pricey)
+                setTimeout(function(){ loadResource("https://playsauruspoc.cachefly.net/Playsaurus_1mb_image.jpg"); }, loadTime[5]); //cachefly
+                //setTimeout(function(){ loadResource("ext_iframe/1mb_image.jpg"); }, loadTime[6]); //fastly
+                localStorage["hasTestedCdn"] = true;
+            }
+            else
+            {
+                console.log("already tested");
+            }
+        }
+        //window.onload = testLoadingSpeed();
+        </script>
+    </body>
+</html>
