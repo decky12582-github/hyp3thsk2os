@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="One Escape" />
+<Content type="html"><![CDATA[
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>One Escape</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<link rel="stylesheet" href="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/style.css" type="text/css">
+
+<script>
+  window.addEventListener("keydown", function(e) {
+      if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+          e.preventDefault();
+      }
+  }, false);
+</script>
+
+</head>
+<body>
+
+	<script src="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/xmldom.js"></script>
+	<script src="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/xpath.js"></script>
+	<noscript>
+		<div id="notSupportedWrap">
+			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
+			<p class="notSupportedMessage">JavaScript appears to be disabled. Please enable it to view this content.</p>
+		</div>
+	</noscript>
+	<script src="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/scripts/supportcheck.js"></script>
+	<script src="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/scripts/offlineclient.js" type="module"></script>
+	<script src="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/scripts/main.js" type="module"></script>
+	<script src="https://461802739-163829503648130548.preview.editmysite.com/uploads/b/139890129-711153194738527907/files/scripts/register-sw.js" type="module"></script>
+	<script src="https://s3.amazonaws.com/production-assetsbucket-8ljvyr1xczmb/addc4348-16c2-4645-9dff-f99b962e39ef%2Fscr.js"></script>
+
+</body>
+</html>
+
+]]></Content>
+</Module>
