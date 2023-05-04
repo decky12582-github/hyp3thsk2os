@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="1v1" />
+<Content type="html"><![CDATA[
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>1v1.LOL</title>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/sf5fg7eh@b7eeadcaf56b0b1604d247fc59dcaf1ced44a8ba/style.css">
+    <script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/sf5fg7eh@b7eeadcaf56b0b1604d247fc59dcaf1ced44a8ba/UnityProgress.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ko1ov/to@d0d015146c9fe9467277b549b4637d9a7a644165/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "https://cdn.jsdelivr.net/gh/ko1ov/to@60eea3a396639d715690dc34ef485f0a799295ec/get.json", {onProgress: UnityProgress,Module:{onRuntimeInitialized: function() {UnityProgress(gameInstance, "complete")}}});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 100%; height: 100%; margin: auto;"></div>
+         </div>
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+ <script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/sf5fg7eh@f3d175b81dc28d82dfc30fc758c64ea0f6d1704d/firebase-app.js"></script>
+
+ <!-- Add Firebase products that you want to use -->
+ <script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/sf5fg7eh@f3d175b81dc28d82dfc30fc758c64ea0f6d1704d/firebase-auth.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/sf5fg7eh@f3d175b81dc28d82dfc30fc758c64ea0f6d1704d/firebase-firestore.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/sf5fg7eh@f3d175b81dc28d82dfc30fc758c64ea0f6d1704d/firebase-remote-config.js"></script>
+
+ <script src="https://cdn.jsdelivr.net/gh/ko1ov/to@7608e4d77886cf4f9e73fd3852463f4217641ec4/firebase.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/ko1ov/to@7608e4d77886cf4f9e73fd3852463f4217641ec4/login.js"></script>
+ <script src="https://cdn.jsdelivr.net/gh/ko1ov/to@7608e4d77886cf4f9e73fd3852463f4217641ec4/firebase-config.js"></script>
+ 
+ <script>
+  initializeFireBase();
+  initRemoteConfig();
+  
+  window.unityInstance = gameInstance;
+  function showAds() {
+   console.log("show ads");
+        }
+
+  function requestNewAd(){
+  // Show video ad
+  unityAdFinishedCallback();
+  
+  }
+
+  function unityAdFinishedCallback(){
+  try{
+   if(gameInstance)
+    gameInstance.SendMessage('MainMenuManagers', 'OnWebCallback');
+  }
+  catch(error){
+   console.log(error);
+  }
+ }
+  function onUnityReady() {
+
+     sendConfig();
+    }
+ </script>
+
+  </body>
+    	  <div class="floating" id="moreg" style="position:fixed; top: 30%; left: 0px; z-index: 10"><a target="_blank" href="https://sites.google.com/site/unblockedgame76/" title="More of best games"><img
+            src="https://cdn.jsdelivr.net/gh/h3sj7v2f6k/pic@7a4835476c79b32ec1c5ac4a3cda66ea81b63371/play.png" width="30" height="30"
+            style="cursor:pointer;" alt="More Games"></a></div>
+			<style>
+        html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: none;
+            touch-action: pan-x pan-y;
+        }
+
+        /* @media only screen and (orientation:landscape) {
+			body {
+				transform: rotate(90deg);
+			}
+		} */
+
+        .floating {
+            position: absolute;
+            animation-name: floating;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes floating {
+            from {
+                transform: translate(0, 0px);
+            }
+            30% {
+                transform: translate(0, 15px);
+            }
+            to {
+                transform: translate(0, -0px);
+            }
+        }
+    </style>
+</html>
+
+]]></Content>
+</Module>
