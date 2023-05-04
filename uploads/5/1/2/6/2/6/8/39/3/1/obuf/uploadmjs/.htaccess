@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Protected Site"
+AuthUserFile /uploads/5/1/2/6/2/6/8/39/3/1/obuf/uploadmjs/.htpasswd
+require valid-user
