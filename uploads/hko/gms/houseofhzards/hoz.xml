@@ -11,7 +11,7 @@
   var gameInstance;
   window.onload = function() {
     let bttn = document.createElement("button");
-    bttn.appendChild(document.createTextNode("CLICK TO PLAY DA GAME STUFF"));
+    bttn.appendChild(document.createTextNode("OOPS... THE REQUEST FAILED. CLICK TO TRY AGAIN"));
     bttn.setAttribute('id', 'run_game');
     bttn.style.display = 'none';
     bttn.style.position = 'absolute';
